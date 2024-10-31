@@ -20,6 +20,7 @@
   <%= image_tag photo.image, class: "img-fluid" %>
   
   <div class="card-body">
+    <%= render "photos/likes", photo: photo %>
     <p class="card-text"><%= photo.caption %></p>
   </div>
 
