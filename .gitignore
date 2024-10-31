@@ -36,3 +36,5 @@ examples.txt
 
 # Ignore dotenv files
 /.env*
+
+node_modules/

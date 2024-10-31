@@ -1,4 +1,4 @@
-<%= form_with(model: follow_request) do |form| %>
+<%= form_with(model: follow_request, class: "d-inline-block") do |form| %>
   <% if follow_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(follow_request.errors.count, "error") %> prohibited this follow_request from being saved:</h2>
@@ -12,6 +12,12 @@
   <% end %>
 
   <%= form.hidden_field :recipient_id %>
+
+  <% if follow_request.recipient.private? %>
+    <%= form.hidden_field :status, value: "pending" %>
+  <% else %>
+    <%= form.hidden_field :status, value: "accepted" %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit "Follow", class: "btn btn-outline-secondary btn-block" %>
