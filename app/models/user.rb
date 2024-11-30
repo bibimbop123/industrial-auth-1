@@ -82,4 +82,5 @@ class User < ApplicationRecord
       self.website = "http://" + self.website
     end
   end
+
 end
