@@ -19,8 +19,10 @@ class UsersController < ApplicationController
     def set_user
       if params[:username]
         @user = User.find_by!(username: params.fetch(:username))
+        authorize @user 
       else
         @user = current_user
+        authorize @user 
       end
     end
 end
